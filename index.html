@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prestige Properties: Mumbai's premier luxury real estate partner. Explore exclusive penthouses, apartments, and villas with personalized service.">
+    <meta name="keywords" content="luxury real estate, Mumbai, penthouse, villa, apartment, property, buy, sell, rent, exclusive, premium, prestige properties">
+    <meta name="author" content="Prestige Properties">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#D4AF37">
+    
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://images.unsplash.com https://cdn.emailjs.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com;">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prestige Properties - Exclusive Properties for the Discerning Buyer">
+    <meta property="og:description" content="Mumbai's premier luxury real estate partner. Explore exclusive penthouses, apartments, and villas with personalized service.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://prestigeproperties.com">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prestige Properties - Exclusive Properties for the Discerning Buyer">
+    <meta name="twitter:description" content="Mumbai's premier luxury real estate partner. Explore exclusive penthouses, apartments, and villas.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
+    
+    <title>Prestige Properties - Exclusive Properties for the Discerning Buyer</title>
+    
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//images.unsplash.com">
+    
+    <!-- Preconnect to critical external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
+    <link rel="preload" href="css/critical.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    
+    <!-- Critical CSS inline for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Non-critical CSS with media query for faster loading -->
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    
+    <!-- Optimized fonts - Premium font pairing for luxury design -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/icons/tress white.jpeg">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header id="navbar" role="banner">
+        <div class="container nav-container">
+            <div class="logo" aria-label="Prestige Properties">
+                <span style="display:inline-flex;align-items:center;gap:8px;vertical-align:middle;">
+                    <img src="images/icons/treeBG.png" alt="Company Logo" class="navbar-logo" style="height:45px;object-fit:contain;display:inline-block;" />
+                    <span style="font-size:2rem;display:inline-block;vertical-align:middle;">Palm Properties</span>
+                </span>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#properties">Residences</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Inquire</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="#contact" class="cta-button">Exclusive Preview</a>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile Navigation">
+            <a href="#home">Home</a>
+            <a href="#properties">Residences</a>
+            <a href="#about">About</a>
+            <a href="#get-in-touch">Connect</a>
+            <a href="#contact">Private Viewings</a>
+            <a href="#contact">Contact Concierge</a>
+            <button id="close-mobile-menu" aria-label="Close mobile menu" style="margin-top:1rem; background:none; border:none; color:var(--gold); font-size:1.5rem; cursor:pointer;">&times;</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+    <section id="home" class="hero">
+        <div class="hero-slideshow">
+            <img 
+                class="hero-slide" 
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" 
+                alt="Luxury penthouse with panoramic city views and modern architecture" 
+                loading="eager"
+                fetchpriority="high"
+            >
+            <img 
+                class="hero-slide" 
+                src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1200&q=80" 
+                alt="Elegant minimalist living room with floor-to-ceiling windows" 
+                loading="lazy"
+                style="opacity: 0;"
+            >
+            <img 
+                class="hero-slide" 
+                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80" 
+                alt="Sophisticated bedroom suite with city skyline views" 
+                loading="lazy"
+                style="opacity: 0;"
+            >
+                        <img 
+                class="hero-slide" 
+                src="images/icons/logo1.png" 
+                alt="Sophisticated bedroom suite with city skyline views" 
+                loading="lazy"
+                style="opacity: 0;"
+            >
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1>WELCOME TO<br>PALM PROPERTIES</h1>
+            <p class="hero-subtitle">Luxury Redefined</p>
+            <a href="#properties" class="hero-cta">Discover</a>
+        </div>
+    </section>
+
+    <!-- Partner Logos Carousel -->
+    <section class="partners-carousel-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Trusted Partners</h2>
+            <p class="section-subtitle fade-in">Building Excellence Together</p>
+            <div class="partners-carousel">
+                <div class="carousel-track">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <img src="images/partners/dlf.png" alt="DLF Limited - Premium Real Estate Developer" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/godrej.png" alt="Godrej Properties - Luxury Residential Projects" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/lodha.png" alt="Lodha Group - Mumbai's Leading Developer" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/wadwa-group.png" alt="Wadwa Group - Trusted Real Estate Partner" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/ashar.png" alt="Ashar Group - Quality Construction Excellence" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/raheja.png" alt="Raheja Group - Iconic Development Projects" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/rustomjee.png" alt="Rustomjee Group - Premium Mumbai Properties" loading="lazy">
+                    </div>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="logo-item">
+                        <img src="images/partners/dlf.png" alt="DLF Limited - Premium Real Estate Developer" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/godrej.png" alt="Godrej Properties - Luxury Residential Projects" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/lodha.png" alt="Lodha Group - Mumbai's Leading Developer" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/wadwa-group.png" alt="Wadwa Group - Trusted Real Estate Partner" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/ashar.png" alt="Ashar Group - Quality Construction Excellence" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/raheja.png" alt="Raheja Group - Iconic Development Projects" loading="lazy">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/partners/rustomjee.png" alt="Rustomjee Group - Premium Mumbai Properties" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Property Cards Section -->
+    <section class="section padding_none">
+        <div class="w-layout-grid grid_3-col tablet-1-col gap-small">
+            <!-- Large first card -->
+            <a href="#properties" class="link-content-block flex_vertical w-inline-block">
+                <div class="ratio_3x2">
+                    <img src="https://cdn.prod.website-files.com/689ae0a1303d81912ebaff2b/689ae135bf5851dfe9bbd2ec_56aa2f19-c850-4147-8d3c-0008f6360eb8.avif" alt="Luxury building" class="image_cover">
+                </div>
+                <div class="card_body">
+                    <div class="margin-bottom_xsmall">
+                        <div class="tag_group margin-bottom_xsmall">
+                            <div class="tag">Market insights</div>
+                        </div>
+                    </div>
+                    <h3 class="heading_h1 margin-bottom_small">Luxury redefined, every day</h3>
+                    <p>Stay ahead with curated property news and design updates.</p>
+                    <div class="flex_horizontal is-align-bottom is-justify_space-between">
+                        <div class="button">View</div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Second card -->
+            <div class="link-content-block flex_vertical w-inline-block">
+                <div class="ratio_3x2">
+                    <img src="https://cdn.prod.website-files.com/689ae0a1303d81912ebaff2b/689ae1352546740be8991264_e750068b-3616-4e4c-8e0c-0326b4600f4b.avif" alt="City living" class="image_cover">
+                </div>
+                <div class="card_body">
+                    <div class="tag_group margin-bottom_xsmall">
+                        <div class="tag">Property showcase</div>
+                    </div>
+                    <h3 class="heading_h3 margin-bottom_none">City living, timeless style</h3>
+                </div>
+            </div>
+            
+            <!-- Third card -->
+            <div class="link-content-block flex_vertical w-inline-block">
+                <div class="ratio_3x2">
+                    <img src="https://cdn.prod.website-files.com/689ae0a1303d81912ebaff2b/689ae136a4ec5401c8fbc8a3_9eac984f-573c-4c77-a480-e7ba6b06c2af.avif" alt="Home office" class="image_cover">
+                </div>
+                <div class="card_body">
+                    <div class="tag_group margin-bottom_xsmall">
+                        <div class="tag">Lifestyle tips</div>
+                    </div>
+                    <h3 class="heading_h3 margin-bottom_none">Elevate your everyday spaces</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+    <!-- Featured Properties -->
+    <section id="properties" class="section" aria-labelledby="featured-properties-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="featured-properties-title">Exclusive Collection</h2>
+            <p class="section-subtitle fade-in">Curated for the discerning</p>
+            <div class="divider fade-in"></div>
+            
+            <div class="properties-grid">
+                <div class="property-card fade-in">
+                    <div class="image-hover-area">
+                        <img src="images\properties\property1.avif" loading="lazy" decoding="async" alt="Penthouse Grandeur, Malabar Hill, Mumbai">
+                        <div class="property-overlay">
+                            <div class="property-overlay-content">
+                                <h3 class="property-overlay-title">Sky Sanctuary</h3>
+                                <p class="property-overlay-location">Malabar Hill, Mumbai</p>
+                                <p class="property-overlay-description">Experience unparalleled luxury in this stunning penthouse with panoramic city views, private terrace, and world-class amenities.</p>
+                                <a href="#" class="property-overlay-link">
+                                    See Details
+                                    <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Sky Sanctuary</h3>
+                        <p class="property-location">Malabar Hill, Mumbai</p>
+                        <div class="property-features">
+                            <span>5 Bedrooms</span>
+                            <span>4,500 sq ft</span>
+                            <span>Private Terrace</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card fade-in">
+                    <div class="image-hover-area">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=75" loading="lazy" decoding="async" alt="Seafront Elegance, Worli, Mumbai">
+                        <div class="property-overlay">
+                            <div class="property-overlay-content">
+                                <h3 class="property-overlay-title">Ocean's Embrace</h3>
+                                <p class="property-overlay-location">Worli, Mumbai</p>
+                                <p class="property-overlay-description">Wake up to breathtaking ocean views in this elegant residence featuring modern architecture and premium finishes throughout.</p>
+                                <a href="#" class="property-overlay-link">
+                                    See Details
+                                    <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Ocean's Embrace</h3>
+                        <p class="property-location">Worli, Mumbai</p>
+                        <div class="property-features">
+                            <span>4 Bedrooms</span>
+                            <span>3,200 sq ft</span>
+                            <span>Ocean Views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card fade-in">
+                    <div class="image-hover-area">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=600&q=75" loading="lazy" decoding="async" alt="Executive Residence, Bandra West, Mumbai">
+                        <div class="property-overlay">
+                            <div class="property-overlay-content">
+                                <h3 class="property-overlay-title">Metropolitan Muse</h3>
+                                <p class="property-overlay-location">Bandra West, Mumbai</p>
+                                <p class="property-overlay-description">Sophisticated living in Mumbai's most coveted neighborhood, offering the perfect blend of luxury and urban convenience.</p>
+                                <a href="#" class="property-overlay-link">
+                                    See Details
+                                    <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-content">
+                        <h3 class="property-title">Metropolitan Muse</h3>
+                        <p class="property-location">Bandra West, Mumbai</p>
+                        <div class="property-features">
+                            <span>3 Bedrooms</span>
+                            <span>2,800 sq ft</span>
+                            <span>Prime Location</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="section section-alt" aria-labelledby="about-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="about-title">Legacy of Excellence</h2>
+            <p class="section-subtitle fade-in">Years of distinction</p>
+            <div class="divider fade-in"></div>
+            
+            <div class="about-grid">
+                <div class="fade-in">
+                    <div class="about-text">
+                        <p>For over a decade, Palm Properties has quietly curated Mumbai’s most coveted addresses — not just selling homes, but unveiling sanctuaries.</p>
+                        <p>Trusted by the city’s most discerning, every acquisition we craft becomes a legacy etched into Mumbai’s skyline.</p>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">₹500+</span>
+                            <span class="stat-label">Crores Transacted</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Excellence</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">350+</span>
+                            <span class="stat-label">Luxury Sales</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image fade-in slide-in-left">
+                    <img src="images/about/family.jpeg" alt="Happy family in their luxury home" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Testimonials -->
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="testimonials-title" style="color: #ccc !important; font-weight: 600;">Client Excellence</h2>
+            <p class="section-subtitle fade-in" style="color: #ccc;">Testimonials from our distinguished clientele</p>
+            <div class="divider fade-in"></div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">Prestige Properties understood our vision perfectly. They delivered not just a home, but a lifestyle that exceeded our expectations.</p>
+                    <p class="testimonial-author">Arjun Mehta</p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">Exceptional service and attention to detail. Our penthouse is everything we dreamed of and more. Truly a luxury experience.</p>
+                    <p class="testimonial-author">Priya Kapoor</p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <p class="testimonial-text">Professional, discreet, and results-driven. They found us the perfect investment property in Mumbai's most coveted location.</p>
+                    <p class="testimonial-author">Vikash Sharma</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Experience Refined Living Section -->
+    <section class="refined-living-section">
+        <div class="container">
+            <div class="refined-living-grid">
+                <!-- Left Column: Content -->
+                <div class="refined-living-content">
+                    <h2 class="refined-living-heading">We Find House, So You can Call it Home !</h2>
+                    <p class="refined-living-subheading">Place which feels like Comfort. Unmatched sophistication .</p>
+                    <div class="refined-living-buttons">
+                        <a href="#properties" class="btn-browse-homes">Browse homes</a>
+                        <a href="#contact" class="btn-inquire">Inquire</a>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Image -->
+                <div class="refined-living-image">
+                    <img 
+                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" 
+                        alt="Refined luxury living space with elegant interior design" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-alt" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="contact-title">Contact Us</h2>
+            <p class="section-subtitle fade-in">Begin Your Journey</p>
+            <div class="divider fade-in"></div>
+            
+            <div class="contact-container fade-in">
+                <div class="contact-image">
+                    <img src="images\contact\contact.avif" 
+                        alt="Luxury property interior with panoramic city views" 
+                        loading="lazy">
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" autocomplete="on" aria-label="Contact form">
+                        <!-- Hidden field for bot protection -->
+                        <input type="hidden" name="form-name" value="contact">
+                        <div style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </div>
+                        
+                        <!-- Personal Concierge Section -->
+                        <div class="concierge-section">
+                            <div class="concierge-avatar">PC</div>
+                            <div class="concierge-info">
+                                <h4>Personal Consultant</h4>
+                                <p>Dedicated to finding your perfect sanctuary</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="property_type">Property Type</label>
+                                <select id="property_type" name="property_type">
+                                    <option value="">Select</option>
+                                    <option>Residential Apartment</option>
+                                    <option>Commercial</option>
+                                    <option>Penthouse</option>
+                                    <option>Office Space</option>
+                                    <option>Investment</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select</option>
+                                    <option>Upto 50 lakhs</option>
+                                    <option>50 lakh - 1 Crores</option>
+                                    <option>1 - 2 Crores</option>
+                                    <option>2 - 5 Crores</option>
+                                    <option>5+ Crores</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Requirements</label>
+                            <textarea id="message" name="message" rows="2" placeholder="Describe your residence..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <span>Begin Private Consultation</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Real Estate Footer -->
+    <footer class="luxury-footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
+                <!-- Company Brand Section -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/icons/logo1.png" alt="Company Logo" class="footer-logo-icon" width="40" height="40" style="object-fit:contain;" />
+                        <div class="footer-logo-text">
+                            <div class="company-name">PALM PROPERTIES</div>
+                            <div class="company-tagline">Mumbai's Premier Real Estate</div>
+                        </div>
+                    </div>
+                    
+                    <p class="footer-description">
+                        For over two decades, we've been Mumbai's trusted partner in luxury real estate, 
+                        connecting discerning clients with exceptional properties across the city's most coveted locations.
+                    </p>
+
+                    <!-- RERA & Certifications -->
+                    <div class="footer-certifications">
+                        <div class="certification-item">
+                            <span class="cert-label">RERA ID:</span>
+                            <span class="cert-value">AXXXXXXX</span>
+                        </div>
+                        <div class="certification-item">
+                            <span class="cert-label">MHADA:</span>
+                            <span class="cert-value">MH-2024-00000</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Section -->
+                    <div class="footer-social-section">
+                        <h5 class="social-title">FOLLOW US</h5>
+                        <div class="footer-social">
+                            <a href="https://facebook.com/palmproperties" aria-label="Follow us on Facebook" class="social-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/palmpropertiesmumbai/" aria-label="Follow us on Instagram" class="social-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/company/palmproperties" aria-label="Connect with us on LinkedIn" class="social-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                    <rect x="2" y="9" width="4" height="12"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+                            <a href="https://youtube.com/palmproperties" aria-label="Subscribe to our YouTube channel" class="social-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                    <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
+                                </svg>
+                            </a>
+                            <a href="https://wa.me/919930363731" aria-label="Chat with us on WhatsApp" class="social-link whatsapp-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">SERVICES</h4>
+                    <ul class="footer-links">
+                        <li>Residential</li>
+                        <li>Commercial</li>
+                        <li>Luxury Penthouses</li>
+                        <li>Property Management</li>
+                        <li>Consultation</li>
+                        <li>Legal Assistance</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Information Section -->
+                <div class="footer-column footer-contact">
+                    <h4 class="footer-column-title">CONTACT INFO</h4>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-label">Office Address</span>
+                                <span class="contact-value">Thane, Maharashtra 400601</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+91 99303 63731</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">palmpropertiesmumbai@gmail.com</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <svg class="contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-label">Office Hours</span>
+                                <span class="contact-value">Mon - Sat: 9 AM - 7 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Palm Properties. All rights reserved.</p>
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="#" aria-label="Terms of Service">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="#" aria-label="Cookie Policy">Cookie Policy</a>
+                        <span class="separator">|</span>
+                        <a href="#" aria-label="Disclaimer">Disclaimer</a>
+                    </div>
+                </div>
+                <div class="footer-disclaimer">
+                    <p><strong>Disclaimer:</strong> All property information, prices, and availability are subject to change without notice. 
+                    Palm Properties acts as a facilitator and charges a commission from the developer/owner. 
+                    Images used are for representation purposes only. Please verify all details independently.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send/?phone=9930363731&text=Hello+Palm+properties%21+&type=phone_number&app_absent=0" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="16" fill="none"/><path d="M16 3C9.373 3 4 8.373 4 15c0 2.65.87 5.1 2.36 7.1L4 29l7.13-2.32C13.1 27.13 14.52 27.5 16 27.5c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.3 0-2.57-.25-3.75-.74l-.27-.11-4.23 1.38 1.38-4.23-.11-.27C6.25 17.57 6 16.3 6 15c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.07-7.75c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.54-.45-.47-.61-.48-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.3 0 1.35.99 2.66 1.13 2.85.14.18 1.95 2.98 4.73 4.06.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.18-.53-.32z" fill="#fff"/></svg>
+    </a>
+
+    <!-- JavaScript Files - Optimized Loading -->
+    <script>
+        // Preload non-critical CSS
+        const loadCSS = (href) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            document.head.appendChild(link);
+        };
+        
+        // Load non-critical CSS after page load
+        window.addEventListener('load', () => {
+            requestIdleCallback(() => {
+                // Any additional CSS can be loaded here if needed
+            });
+        });
+        
+        // Service Worker registration for caching (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Register service worker here if you have one
+            });
+        }
+    </script>
+    
+    <!-- Load scripts -->
+        <script src="js/main.js" defer></script>
+        <script src="js/slideshow.js" defer></script>
+        <script src="js/form-netlify.js" defer></script>
+        <!-- EmailJS SDK v4 -->
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <!-- EmailJS Form Handler (toggle with window.useEmailJS = true) -->
+        <script type="module" src="js/form-emailjs.js"></script>
+        <script>
+            // To use EmailJS, set this to true. To use Netlify, set to false.
+            window.useEmailJS = true;
+        </script>
+    </main>
+</body>
+</html>
