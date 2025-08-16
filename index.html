@@ -42,6 +42,15 @@
     
     <!-- Critical CSS inlined for instant rendering -->
     <style>
+        /* Critical Font Definition */
+        @font-face {
+            font-family: 'Prestigious';
+            src: url('fonts/prestigious-regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         /* Critical CSS Variables - Essential for above-the-fold */
         :root {
             --primary-gold: #D4AF37;
@@ -76,9 +85,10 @@
             line-height: 1.7;
         }
 
-        /* Ensure navigation fonts load immediately */
-        #navbar, #navbar * {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        /* Ensure navigation elements are visible immediately */
+        #navbar * {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* Critical navigation styles to prevent layout shift */
@@ -119,6 +129,23 @@
             color: var(--text-dark);
             display: flex;
             align-items: center;
+        }
+
+        .logo span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            vertical-align: middle;
+        }
+
+        .logo span span {
+            font-family: 'Prestigious', -apple-system, BlinkMacSystemFont, serif;
+            font-size: 2rem;
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: normal;
+            color: var(--text-dark);
+            letter-spacing: 0.02em;
         }
 
         .navbar-logo {
@@ -224,6 +251,25 @@
             }
             .menu-toggle {
                 display: flex;
+            }
+            
+            /* Responsive logo text */
+            .logo span span {
+                font-size: 1.5rem;
+            }
+            
+            .navbar-logo {
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span span {
+                font-size: 1.2rem;
+            }
+            
+            .navbar-logo {
+                height: 30px;
             }
         }
 
@@ -986,12 +1032,12 @@
                         <img src="images/icons/logo1.png" alt="Company Logo" class="footer-logo-icon" width="40" height="40" style="object-fit:contain;" />
                         <div class="footer-logo-text">
                             <div class="company-name">PALM PROPERTIES</div>
-                            <div class="company-tagline">Mumbai's Premier Real Estate</div>
+                            <div class="company-tagline">Mumbai's premium Real Estate</div>
                         </div>
                     </div>
                     
                     <p class="footer-description">
-                        For over two decades, we've been Mumbai's trusted partner in luxury real estate, 
+                        For over a decades, we've been Mumbai's trusted partner in luxury real estate, 
                         connecting discerning clients with exceptional properties across the city's most coveted locations.
                     </p>
 
@@ -999,7 +1045,7 @@
                     <div class="footer-certifications">
                         <div class="certification-item">
                             <span class="cert-label">RERA ID:</span>
-                            <span class="cert-value">XXXXXXXXX</span>
+                            <span class="cert-value">XXXXXXXXXXXX</span>
                         </div>
                         <div class="certification-item">
                             <span class="cert-label">MHADA:</span>
