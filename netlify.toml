@@ -1,2 +1,30 @@
 [build]
-  functions = "netlify/functions"
+  # Build command (if you have a build process)
+  # command = "npm run build"
+  
+  # Directory to publish (your site's root directory)
+  publish = "."
+
+# Form submission settings
+[[forms]]
+  name = "contact"
+  
+  # Email notifications for form submissions
+  [forms.notifications]
+    # Send email notification when form is submitted
+    email = "your-email@domain.com"  # Replace with your actual email address
+    
+# Redirect rules for form submissions
+[[redirects]]
+  from = "/success"
+  to = "/#contact"
+  status = 302
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

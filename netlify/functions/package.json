@@ -1,9 +1,0 @@
-{
-  "name": "palm-properties-functions",
-  "version": "1.0.0",
-  "description": "Netlify functions for Palm Properties website",
-  "main": "index.js",
-  "dependencies": {
-    "node-fetch": "^2.6.7"
-  }
-}

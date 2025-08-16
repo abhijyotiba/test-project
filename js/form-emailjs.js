@@ -5,8 +5,9 @@
  * Usage: include this script in your HTML after including EmailJS SDK
  */
 
-// Import EmailJS config
-// No need to import EmailJS keys; handled by Netlify function
+const EMAILJS_USER_ID = 'swyGfbFbx-pCFkovj';
+const EMAILJS_SERVICE_ID = 'service_xj37xa5';
+const EMAILJS_TEMPLATE_ID = 'template_enimovp';
 
 
 class EmailJSContactFormHandler {
@@ -19,6 +20,10 @@ class EmailJSContactFormHandler {
 
     init() {
         if (!this.form) return;
+        // Initialize EmailJS SDK
+        if (window.emailjs && window.emailjs.init) {
+            window.emailjs.init(EMAILJS_USER_ID);
+        }
         // Only handle EmailJS submission if enabled
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
     }
@@ -54,17 +59,9 @@ class EmailJSContactFormHandler {
                 data[key] = value;
             }
         });
-        // Send to Netlify serverless function
-        const response = await fetch('/.netlify/functions/send-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        const result = await response.json();
-        if (!result.success) {
-            throw new Error(result.error || 'Serverless function error');
-        }
-        return result;
+        // Send via EmailJS
+        if (!window.emailjs) throw new Error('EmailJS SDK not loaded');
+        return window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data, EMAILJS_USER_ID);
     }
 
     handleSuccess() {
@@ -76,12 +73,15 @@ class EmailJSContactFormHandler {
 
     handleError(error) {
         this.setSubmitState('error');
+        console.error('EmailJS submission error:', error);
         this.showPopup('Sorry, there was an error sending your message. Please try again.', 'error');
         setTimeout(() => this.setSubmitState('normal'), 3000);
     }
 
     setSubmitState(state) {
         const button = this.submitButton;
+        if (!button) return;
+        
         const buttonText = button.querySelector('span');
         button.classList.remove('loading', 'success', 'error');
         switch (state) {
@@ -119,7 +119,7 @@ class EmailJSContactFormHandler {
 
 function initEmailJSContactFormHandler() {
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             window.emailJSContactFormHandler = new EmailJSContactFormHandler();
         });
     } else {

@@ -1,14 +1,10 @@
 // Enhanced Hero Slideshow with Split Reveal Transition
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Slideshow script loaded'); // Debug log
-
     // Enhanced Hero Slideshow Implementation
     (function() {
         const slides = document.querySelectorAll('.hero-slide');
-        console.log('Found slides:', slides.length); // Debug log
         
         if (slides.length <= 1) {
-            console.log('Not enough slides for slideshow'); // Debug log
             return;
         }
 
@@ -19,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize slideshow
         function initSlideshow() {
-            console.log('Initializing slideshow'); // Debug log
             
             // Set initial states
             slides.forEach((slide, index) => {
@@ -43,12 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Enhanced slide transition
-        function showSlide(nextIndex, direction = 'next') {
+        function showSlide(nextIndex) {
             if (isTransitioning || nextIndex === currentSlide || nextIndex >= slides.length) {
                 return Promise.resolve();
             }
             
-            console.log(`Transitioning from slide ${currentSlide} to ${nextIndex}`); // Debug log
+
             isTransitioning = true;
             
             const currentSlideEl = slides[currentSlide];
@@ -60,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
                 !document.hidden;
             
-            if (shouldUseSplitTransition && typeof runSplitTransition === 'function') {
-                return runSplitTransition(currentSlide, nextIndex).then(() => {
+            if (shouldUseSplitTransition && typeof window.runSplitTransition === 'function') {
+                return window.runSplitTransition(currentSlide, nextIndex).then(() => {
                     currentSlide = nextIndex;
                     isTransitioning = false;
                 });
@@ -129,12 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isTransitioning) return;
             
             const nextIndex = (currentSlide + 1) % slides.length;
-            showSlide(nextIndex, 'next');
+            showSlide(nextIndex);
         }
 
         // Auto-slide functionality
         function startAutoSlide() {
-            console.log('Starting auto-slide'); // Debug log
             stopAutoSlide(); // Clear any existing timer
             
             autoSlideTimer = setInterval(() => {
@@ -181,9 +175,24 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 const currentSlide = slides[currentIndex];
                 const nextSlide = slides[nextIndex];
-                const currentImgSrc = currentSlide.src;
                 
-                console.log('Running split transition'); // Debug log
+                // Get image source - handle both img elements and background images
+                let currentImgSrc = '';
+                if (currentSlide.tagName === 'IMG') {
+                    currentImgSrc = currentSlide.src;
+                } else {
+                    // Try to get background image from computed styles
+                    const bgImage = window.getComputedStyle(currentSlide).backgroundImage;
+                    const match = bgImage.match(/url\(['"]?([^'"]+)['"]?\)/);
+                    currentImgSrc = match ? match[1] : '';
+                }
+                
+                if (!currentImgSrc) {
+                    // Fallback to simple transition if no image source found
+                    return window.runSimpleTransition(currentSlide, nextSlide, nextIndex).then(resolve);
+                }
+                
+
                 
                 // Prepare next slide
                 nextSlide.style.opacity = '1';

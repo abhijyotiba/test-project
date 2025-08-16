@@ -38,11 +38,385 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80">
-    <link rel="preload" href="css/critical.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
     
-    <!-- Critical CSS inline for above-the-fold content -->
-    <link rel="stylesheet" href="css/critical.css">
+    <!-- Critical CSS inlined for instant rendering -->
+    <style>
+        /* Critical CSS Variables - Essential for above-the-fold */
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-gold-light: #E6C967;
+            --primary-gold-dark: #B8941F;
+            --gold: #D4AF37;
+            --black: #0F0F0F;
+            --white: #FFFFFF;
+            --text-dark: #0F0F0F;
+            --text-light: #6B6B6B;
+            --shadow-medium: rgba(15, 15, 15, 0.12);
+        }
+
+        /* Critical CSS for above-the-fold content only */
+
+        /* Prevent FOUC and layout shifts */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+        }
+
+        /* Basic font loading to prevent layout shift */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* Critical navigation styles to prevent layout shift */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .cta-button {
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .cta-button {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Critical hero styles to prevent layout shift */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--primary-gold-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Fade-in animation for critical elements */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Refined Living Section - Critical above-the-fold styles */
+        .refined-living-section {
+            background-color: #f5efee;
+            padding: 96px 0;
+            position: relative;
+        }
+
+        .refined-living-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .refined-living-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 32px;
+        }
+
+        .refined-living-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 5vw, 3rem);
+            font-weight: 600;
+            color: #333;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .refined-living-subheading {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(74, 74, 74, 0.8);
+            line-height: 1.5;
+            margin-bottom: 32px;
+            letter-spacing: 0.01em;
+        }
+
+        .refined-living-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-browse-homes,
+        .btn-inquire {
+            padding: 13px 26px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            text-align: center;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+        }
+
+        .btn-browse-homes {
+            background-color: #000;
+            color: #fff;
+            border: none;
+        }
+
+        .btn-browse-homes:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-inquire {
+            background-color: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+
+        .btn-inquire:hover {
+            background-color: #000;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .refined-living-image {
+            position: relative;
+            height: 420px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .refined-living-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .refined-living-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .refined-living-section {
+                padding: 64px 0;
+            }
+            
+            .refined-living-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .refined-living-content {
+                padding: 0 16px;
+                order: 1;
+            }
+            
+            .refined-living-image {
+                height: 250px;
+                order: 2;
+                margin: 0 16px;
+            }
+            
+            .refined-living-heading {
+                font-size: 2.1rem;
+                margin-bottom: 13px;
+            }
+            
+            .refined-living-subheading {
+                font-size: 1rem;
+                margin-bottom: 24px;
+            }
+            
+            .refined-living-buttons {
+                justify-content: center;
+                gap: 12px;
+            }
+            
+            .btn-browse-homes,
+            .btn-inquire {
+                padding: 11px 22px;
+                font-size: 0.85rem;
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .refined-living-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-browse-homes,
+            .btn-inquire {
+                width: 100%;
+                max-width: 240px;
+            }
+        }
+    </style>
     
     <!-- Non-critical CSS with media query for faster loading -->
     <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

@@ -123,11 +123,48 @@ class NetlifyContactFormHandler {
     }
 
     handleSubmit(e) {
-        if (!this.validateForm()) {
+        try {
+            if (!this.validateForm()) {
+                e.preventDefault();
+                this.focusFirstError();
+                return;
+            }
+            // If valid, allow native submission (Netlify will process)
+            this.setSubmitState('loading');
+        } catch (error) {
+            console.error('Form validation error:', error);
             e.preventDefault();
-            this.focusFirstError();
         }
-        // If valid, allow native submission (Netlify will process)
+    }
+
+    setSubmitState(state) {
+        const button = this.submitButton;
+        if (!button) return;
+        
+        const buttonText = button.querySelector('span');
+        button.classList.remove('loading', 'success', 'error');
+        
+        switch (state) {
+            case 'loading':
+                button.classList.add('loading');
+                button.disabled = true;
+                if (buttonText) buttonText.textContent = 'Sending...';
+                break;
+            case 'success':
+                button.classList.add('success');
+                button.disabled = false;
+                if (buttonText) buttonText.textContent = 'Sent Successfully!';
+                break;
+            case 'error':
+                button.classList.add('error');
+                button.disabled = false;
+                if (buttonText) buttonText.textContent = 'Failed - Try Again';
+                break;
+            default:
+                button.disabled = false;
+                if (buttonText) buttonText.textContent = 'Begin Private Consultation';
+                break;
+        }
     }
 
     focusFirstError() {
