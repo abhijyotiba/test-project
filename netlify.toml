@@ -1,6 +1,4 @@
-[build]
-  # Build command (if you have a build process)
-  # command = "npm run build"
+
   
   # Directory to publish (your site's root directory)
   publish = "."
