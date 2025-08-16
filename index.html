@@ -71,9 +71,14 @@
 
         /* Basic font loading to prevent layout shift */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #ffffff;
             line-height: 1.7;
+        }
+
+        /* Ensure navigation fonts load immediately */
+        #navbar, #navbar * {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         /* Critical navigation styles to prevent layout shift */
@@ -84,9 +89,18 @@
             right: 0;
             height: 80px;
             background: rgba(255, 255, 255, 0.95);
-            z-index: 1000;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ensure navbar is visible immediately */
+        #navbar * {
+            visibility: visible;
+            opacity: 1;
         }
 
         .nav-container {
@@ -103,6 +117,14 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 45px;
+            object-fit: contain;
+            display: inline-block;
         }
 
         .nav-links {
@@ -116,6 +138,15 @@
             color: var(--text-dark);
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links li {
+            margin: 0;
         }
 
         .cta-button {
@@ -126,6 +157,15 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-gold-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
         }
 
         .menu-toggle {
@@ -142,6 +182,40 @@
             background: var(--text-dark);
             margin: 3px 0;
             transition: 0.3s;
+        }
+
+        /* Mobile menu styles - Critical for preventing FOUC */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--white);
+            z-index: 1001;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.show {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-gold);
         }
 
         @media (max-width: 768px) {
@@ -925,11 +999,11 @@
                     <div class="footer-certifications">
                         <div class="certification-item">
                             <span class="cert-label">RERA ID:</span>
-                            <span class="cert-value">AXXXXXXX</span>
+                            <span class="cert-value">XXXXXXXXX</span>
                         </div>
                         <div class="certification-item">
                             <span class="cert-label">MHADA:</span>
-                            <span class="cert-value">MH-2024-00000</span>
+                            <span class="cert-value">MH-2024-XXXXXX</span>
                         </div>
                     </div>
 
