@@ -5,9 +5,10 @@
  * Usage: include this script in your HTML after including EmailJS SDK
  */
 
-const EMAILJS_USER_ID = 'swyGfbFbx-pCFkovj';
-const EMAILJS_SERVICE_ID = 'service_xj37xa5';
-const EMAILJS_TEMPLATE_ID = 'template_enimovp';
+// Get EmailJS configuration from environment variables or fallback to defaults
+const EMAILJS_USER_ID = window.EMAILJS_USER_ID || 'swyGfbFbx-pCFkovj';
+const EMAILJS_SERVICE_ID = window.EMAILJS_SERVICE_ID || 'service_xj37xa5';
+const EMAILJS_TEMPLATE_ID = window.EMAILJS_TEMPLATE_ID || 'template_enimovp';
 
 
 class EmailJSContactFormHandler {

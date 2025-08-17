@@ -1,13 +1,14 @@
-/* ===== LUXURY PROPERTY POPUP - PREMIUM BRAND LEVEL ===== */
-/* Main luxury styles file - Prada/Gucci inspired design */
+/* Expert UI Designer - Property Popup Styles */
 
-/* Luxury Brand Inspired Variables */
+/* Luxury Brand Inspired Variables with Enhanced Typography */
 :root {
     --luxury-black: #000000;
     --luxury-charcoal: #1A1A1A;
     --luxury-grey: #8B8B8B;
     --luxury-light-grey: #F8F8F8;
     --luxury-gold: #D4AF37;
+    --luxury-gold-dark: #B8941F;
+    --luxury-gold-light: #F4E5A1;
     --luxury-white: #FFFFFF;
     --luxury-cream: #FEFEFE;
     --luxury-spacing-xs: 8px;
@@ -17,12 +18,28 @@
     --luxury-spacing-xl: 48px;
     --luxury-spacing-xxl: 64px;
     --luxury-border-radius: 2px;
-    --luxury-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --luxury-font-serif: 'Playfair Display', Georgia, serif;
+    
+    /* Enhanced Typography System */
+    --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font-family-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    
+    /* Gold Gradient */
+    --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4E5A1 25%, #D4AF37 50%, #B8941F 75%, #D4AF37 100%);
+    --gold-gradient-subtle: linear-gradient(135deg, #D4AF37 0%, #E6D066 50%, #D4AF37 100%);
+    
+    /* Shiny Black Gradient for Price */
+    --black-gradient: linear-gradient(135deg, #000000 0%, #434343 25%, #000000 50%, #2c2c2c 75%, #000000 100%);
+    --black-gradient-subtle: linear-gradient(135deg, #1a1a1a 0%, #333333 50%, #1a1a1a 100%);
+    
     --luxury-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     --luxury-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.04);
     --luxury-shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
     --luxury-shadow-heavy: 0 24px 64px rgba(0, 0, 0, 0.12);
+    
+    /* Glassmorphism Variables */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* Modal Overlay - Sophisticated backdrop */
@@ -32,9 +49,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: var(--z-modal, 1050);
     display: flex;
@@ -283,133 +299,231 @@
 }
 
 .property-modal-title {
-    font-family: var(--font-family-serif, 'Playfair Display', serif);
-    font-size: 2.5rem;
+    font-family: var(--font-family-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 600;
-    color: var(--text-dark, #0F0F0F);
-    margin-bottom: 10px;
+    color: var(--luxury-black);
+    margin-bottom: 12px;
     line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .property-modal-location {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--text-medium, #404040);
+    color: var(--luxury-grey);
+    font-family: var(--font-family-primary);
     font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
 }
 
 .property-modal-location::before {
     content: '📍';
-    font-size: 1rem;
+    font-size: 1.1rem;
+    filter: grayscale(0.3);
 }
 
 .property-modal-price {
-    font-family: var(--font-family-primary, 'Inter', sans-serif);
-    font-size: 2rem;
+    font-family: var(--font-family-primary);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 700;
-    background: linear-gradient(90deg, #D4AF37, #B8941F); /* Luxury gradient text */
+    background: var(--black-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 20px;
-    display: inline-block; /* Required for gradient text */
+    display: inline-block;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.property-modal-price::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--black-gradient-subtle);
+    border-radius: 1px;
+    opacity: 0.6;
 }
 
 .property-modal-description {
-    color: var(--text-medium, #404040);
+    color: var(--luxury-grey);
+    font-family: var(--font-family-primary);
     font-size: 1rem;
     line-height: 1.7;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
     text-align: justify;
+    letter-spacing: 0.005em;
+    font-weight: 400;
 }
 
-/* Property Features Grid */
+/* Property Features Grid - Enhanced Expert Design */
 .property-modal-features {
-    margin-bottom: 30px;
+    margin-bottom: 36px;
 }
 
 .property-modal-features-title {
-    font-size: 1.2rem;
+    font-family: var(--font-family-serif);
+    font-size: 1.4rem;
     font-weight: 600;
-    color: var(--text-dark, #0F0F0F);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--luxury-black);
+    margin-bottom: 20px;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.property-modal-features-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gold-gradient-subtle);
+    border-radius: 1px;
 }
 
 .property-modal-features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
 }
 
 .property-modal-feature {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(253, 248, 229, 0.6)); /* Glassmorphism gradient */
-    backdrop-filter: blur(8px); /* Glass blur effect */
-    -webkit-backdrop-filter: blur(8px);
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-weight: 600; /* Enhanced weight for premium feel */
-    color: var(--text-medium, #404040);
-    border: none; /* Remove border for cleaner look */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
-    transition: all 0.3s ease;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    font-family: var(--font-family-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--luxury-charcoal);
+    box-shadow: var(--glass-shadow);
+    transition: var(--luxury-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.property-modal-feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold-gradient-subtle);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
 }
 
 .property-modal-feature:hover {
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(253, 248, 229, 0.8));
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25); /* Luxury glow on hover */
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 
+        var(--glass-shadow),
+        0 8px 32px rgba(212, 175, 55, 0.2);
     transform: translateY(-2px);
 }
 
-.property-modal-feature-icon {
-    font-size: 1.2rem;
-    color: var(--primary-gold, #D4AF37);
-    flex-shrink: 0;
+.property-modal-feature:hover::before {
+    opacity: 1;
 }
 
-/* Amenities Section */
+.property-modal-feature-icon {
+    font-size: 1.4rem;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Amenities Section - Expert Grid Design with Gold Icons */
 .property-modal-amenities {
-    margin-bottom: 30px;
+    margin-bottom: 36px;
 }
 
 .property-modal-amenities-title {
-    font-size: 1.2rem;
+    font-family: var(--font-family-serif);
+    font-size: 1.4rem;
     font-weight: 600;
-    color: var(--text-dark, #0F0F0F);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--luxury-black);
+    margin-bottom: 20px;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.property-modal-amenities-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--gold-gradient-subtle);
+    border-radius: 1px;
 }
 
 .property-modal-amenities-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
 }
 
 .property-modal-amenity {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    color: var(--text-medium, #404040);
-    padding: 5px 0;
+    gap: 12px;
+    font-family: var(--font-family-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--luxury-charcoal);
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--luxury-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.property-modal-amenity:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
 }
 
 .property-modal-amenity::before {
-    content: '✓';
-    color: var(--primary-gold, #D4AF37);
+    content: '✦';
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 /* Additional Sections for Future Use */
@@ -493,57 +607,72 @@
 .property-modal-button {
     flex: 1;
     min-width: 140px;
-    padding: 15px 20px;
-    border-radius: 8px;
-    font-size: 0.9rem;
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-family: var(--font-family-primary);
+    font-size: 0.95rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--luxury-transition);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-family-primary, 'Inter', sans-serif);
     outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.property-modal-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.property-modal-button:hover::before {
+    left: 100%;
 }
 
 .property-modal-button-primary {
-    background: var(--primary-gold, #D4AF37);
-    color: var(--white, #FFFFFF);
-    border: 2px solid var(--primary-gold, #D4AF37);
+    background: var(--gold-gradient);
+    color: var(--luxury-white);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
 .property-modal-button-primary:hover {
-    background: var(--primary-gold-dark, #B8941F);
-    border-color: var(--primary-gold-dark, #B8941F);
-    color: var(--white, #FFFFFF);
+    background: var(--gold-gradient-subtle);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
 }
 
 .property-modal-button-secondary {
     background: transparent;
-    color: #0F0F0F !important; /* Force black text */
-    border: 2px solid var(--text-dark, #0F0F0F);
+    color: var(--luxury-black);
+    border: 2px solid var(--luxury-black);
 }
 
 .property-modal-button-secondary:hover {
-    background: var(--text-dark, #0F0F0F);
-    color: var(--white, #FFFFFF);
-    border-color: var(--text-dark, #0F0F0F);
+    background: var(--luxury-black);
+    color: var(--luxury-white);
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(15, 15, 15, 0.3);
 }
 
 .property-modal-button-primary:focus {
-    outline: 2px solid var(--primary-gold-dark, #B8941F);
+    outline: 2px solid var(--luxury-gold-dark);
     outline-offset: 2px;
 }
 
 .property-modal-button-secondary:focus {
-    outline: 2px solid var(--text-dark, #0F0F0F);
+    outline: 2px solid var(--luxury-black);
     outline-offset: 2px;
 }
 
@@ -551,65 +680,81 @@
     transform: translateY(0);
 }
 
-/* Mobile Responsive Design */
+/* Mobile Responsive Design - Expert UI Scaling */
 @media (max-width: 768px) {
     .property-modal {
         max-height: 95vh;
         margin: 10px;
-        border-radius: 15px;
+        border-radius: 16px;
     }
     
     .property-modal-gallery {
-        height: 400px; /* Square 400x400 - consistent with desktop */
+        height: 350px; /* Slightly smaller for mobile but still prominent */
     }
     
     .property-modal-details {
-        padding: 30px 25px;
-        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on mobile */
+        padding: 24px 20px;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8);
     }
     
     .property-modal-actions {
-        padding: 20px 25px 30px 25px;
-        margin-left: -25px;
-        margin-right: -25px;
-        margin-bottom: -30px;
+        padding: 20px 20px 24px 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-bottom: -24px;
         flex-direction: column;
-        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on mobile */
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Maintain shadow on mobile */
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     }
     
     .property-modal-title {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+        margin-bottom: 10px;
     }
     
     .property-modal-price {
-        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 4vw, 1.8rem);
+        margin-bottom: 16px;
     }
     
     .property-modal-features-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .property-modal-feature {
+        padding: 14px 18px;
+        font-size: 0.9rem;
     }
     
     .property-modal-amenities-list {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .property-modal-amenity {
+        padding: 10px 14px;
+        font-size: 0.9rem;
     }
     
     .property-modal-button {
         min-width: auto;
+        padding: 16px 20px;
+        font-size: 0.95rem;
     }
     
     .property-modal-nav {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
     }
     
     .property-modal-nav-prev {
-        left: 15px;
+        left: 12px;
     }
     
     .property-modal-nav-next {
-        right: 15px;
+        right: 12px;
     }
     
     .property-modal-indicators {
@@ -625,40 +770,76 @@
     }
 }
 
+/* Tablet Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .property-modal {
+        max-width: 900px;
+        margin: 20px;
+    }
+    
+    .property-modal-gallery {
+        height: 380px;
+    }
+    
+    .property-modal-features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+    }
+    
+    .property-modal-amenities-list {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
 @media (max-width: 480px) {
     .property-modal-overlay {
-        padding: 10px;
+        padding: 8px;
     }
     
     .property-modal {
         margin: 0;
-        border-radius: 10px;
+        border-radius: 12px;
     }
     
     .property-modal-gallery {
-        height: 400px; /* Square 400x400 - consistent across all devices */
+        height: 300px; /* Smaller for very small screens */
     }
     
     .property-modal-details {
-        padding: 20px;
-        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on small screens */
+        padding: 20px 16px;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8);
     }
     
     .property-modal-actions {
-        padding: 20px 20px 20px 20px;
-        margin-left: -20px;
-        margin-right: -20px;
+        padding: 16px;
+        margin-left: -16px;
+        margin-right: -16px;
         margin-bottom: -20px;
-        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on small screens */
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Maintain shadow on small screens */
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
     }
     
     .property-modal-title {
-        font-size: 1.8rem;
+        font-size: clamp(1.6rem, 6vw, 1.9rem);
+        line-height: 1.3;
+    }
+    
+    .property-modal-features-grid {
+        gap: 10px;
+    }
+    
+    .property-modal-feature {
+        padding: 12px 16px;
+        font-size: 0.85rem;
     }
     
     .property-modal-amenities-list {
-        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .property-modal-amenity {
+        padding: 8px 12px;
+        font-size: 0.85rem;
     }
 }
 
@@ -686,7 +867,7 @@
 .property-modal-nav:focus,
 .property-modal-indicator:focus,
 .property-modal-button:focus {
-    outline: 2px solid var(--primary-gold, #D4AF37);
+    outline: 2px solid var(--luxury-gold);
     outline-offset: 2px;
 }
 
@@ -735,3 +916,5 @@
         color: #1a1a1a;
     }
 }
+
+
