@@ -1,9 +1,0 @@
-{
-  "name": "palm-properties",
-  "version": "1.0.0",
-  "description": " Palm Properties website",
-  "main": "index.js",
-  "dependencies": {
-    
-  }
-}

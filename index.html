@@ -542,6 +542,9 @@
     <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
     
+    <!-- Property Popup Modal CSS -->
+    <link rel="stylesheet" href="css/property-popup.css">
+    
     <!-- Optimized fonts - Premium font pairing for luxury design -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/icons/tress white.jpeg">
@@ -743,86 +746,92 @@
             <div class="divider fade-in"></div>
             
             <div class="properties-grid">
-                <div class="property-card fade-in">
+                <div class="property-card fade-in" data-property-id="verdant-vistas">
                     <div class="image-hover-area">
-                        <img src="images\properties\property1.avif" loading="lazy" decoding="async" alt="Penthouse Grandeur, Malabar Hill, Mumbai">
+                        <img src="images/properties/1-verdant vistas/Elevation 2.jpg" loading="lazy" decoding="async" alt="Verdant Vistas, Manjiwada, Thane">
                         <div class="property-overlay">
                             <div class="property-overlay-content">
-                                <h3 class="property-overlay-title">Sky Sanctuary</h3>
-                                <p class="property-overlay-location">Malabar Hill, Mumbai</p>
-                                <p class="property-overlay-description">Experience unparalleled luxury in this stunning penthouse with panoramic city views, private terrace, and world-class amenities.</p>
-                                <a href="#" class="property-overlay-link">
+                                <h3 class="property-overlay-title">Verdant Vistas</h3>
+                                <p class="property-overlay-location">Manjiwada, Thane</p>
+                                <p class="property-overlay-price">₹2.71 Crores</p>
+                                <p class="property-overlay-description">Experience unparalleled luxury in this stunning residential project with panoramic city views, world-class amenities, and modern architecture.</p>
+                                <button class="property-overlay-link property-details-btn" data-property="verdant-vistas">
                                     See Details
                                     <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div class="property-content">
-                        <h3 class="property-title">Sky Sanctuary</h3>
-                        <p class="property-location">Malabar Hill, Mumbai</p>
+                        <h3 class="property-title">Verdant Vistas</h3>
+                        <p class="property-location">Manjiwada, Thane</p>
+                        <div class="property-price">₹2.71 Crores</div>
                         <div class="property-features">
-                            <span>5 Bedrooms</span>
-                            <span>4,500 sq ft</span>
-                            <span>Private Terrace</span>
+                            <span>3&4 Bedrooms</span>
+                            <span>2244 sq.ft</span>
+                            <span>Private Terrace Balconies</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="property-card fade-in">
+                <div class="property-card fade-in" data-property-id="la-familia">
                     <div class="image-hover-area">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=75" loading="lazy" decoding="async" alt="Seafront Elegance, Worli, Mumbai">
+                        <img src="images/properties/2-La familia/1.webp" loading="lazy" decoding="async" alt="La Familia Residential Project">
                         <div class="property-overlay">
                             <div class="property-overlay-content">
-                                <h3 class="property-overlay-title">Ocean's Embrace</h3>
-                                <p class="property-overlay-location">Worli, Mumbai</p>
-                                <p class="property-overlay-description">Wake up to breathtaking ocean views in this elegant residence featuring modern architecture and premium finishes throughout.</p>
-                                <a href="#" class="property-overlay-link">
+                                <h3 class="property-overlay-title">La Familia</h3>
+                                <p class="property-overlay-location">Mumbai, Maharashtra</p>
+                                <p class="property-overlay-price">₹3.5 Crores</p>
+                                <p class="property-overlay-description">Discover the perfect blend of modern living and family comfort in this thoughtfully designed residential community with premium amenities.</p>
+                                <button class="property-overlay-link property-details-btn" data-property="la-familia">
                                     See Details
                                     <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div class="property-content">
-                        <h3 class="property-title">Ocean's Embrace</h3>
-                        <p class="property-location">Worli, Mumbai</p>
+                        <h3 class="property-title">La Familia</h3>
+                        <p class="property-location">Mumbai, Maharashtra</p>
+                        <div class="property-price">₹3.5 Crores</div>
                         <div class="property-features">
-                            <span>4 Bedrooms</span>
-                            <span>3,200 sq ft</span>
-                            <span>Ocean Views</span>
+                            <span>2&3 Bedrooms</span>
+                            <span>1850 sq ft</span>
+                            <span>Family Living</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="property-card fade-in">
+                <div class="property-card fade-in" data-property-id="la-vie">
                     <div class="image-hover-area">
-                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=600&q=75" loading="lazy" decoding="async" alt="Executive Residence, Bandra West, Mumbai">
+                        <img src="images/properties/3-La Vie/1.jpg" loading="lazy" decoding="async" alt="La Vie Luxury Residences">
                         <div class="property-overlay">
                             <div class="property-overlay-content">
-                                <h3 class="property-overlay-title">Metropolitan Muse</h3>
-                                <p class="property-overlay-location">Bandra West, Mumbai</p>
-                                <p class="property-overlay-description">Sophisticated living in Mumbai's most coveted neighborhood, offering the perfect blend of luxury and urban convenience.</p>
-                                <a href="#" class="property-overlay-link">
+                                <h3 class="property-overlay-title">La Vie</h3>
+                                <p class="property-overlay-location">Mumbai, Maharashtra</p>
+                                <p class="property-overlay-price">₹4.2 Crores</p>
+                                <p class="property-overlay-description">Experience the essence of sophisticated living with panoramic views, contemporary design, and world-class amenities in the heart of Mumbai.</p>
+                                <button class="property-overlay-link property-details-btn" data-property="la-vie">
                                     See Details
                                     <svg class="property-overlay-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                                     </svg>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div class="property-content">
-                        <h3 class="property-title">Metropolitan Muse</h3>
-                        <p class="property-location">Bandra West, Mumbai</p>
+                        <h3 class="property-title">La Vie</h3>
+                        <p class="property-location">Mumbai, Maharashtra</p>
+                        <div class="property-price">₹4.2 Crores</div>
                         <div class="property-features">
-                            <span>3 Bedrooms</span>
-                            <span>2,800 sq ft</span>
-                            <span>Prime Location</span>
+                            <span>3&4 Bedrooms</span>
+                            <span>2200 sq ft</span>
+                            <span>Luxury Living</span>
                         </div>
                     </div>
                 </div>
@@ -1204,6 +1213,7 @@
     <!-- Load scripts -->
         <script src="js/main.js" defer></script>
         <script src="js/slideshow.js" defer></script>
+        <script src="js/property-popup.js" defer></script>
         <script src="js/form-netlify.js" defer></script>
         <!-- EmailJS SDK v4 -->
         <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

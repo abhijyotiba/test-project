@@ -10,7 +10,7 @@
   # Email notifications for form submissions
   [forms.notifications]
     # Send email notification when form is submitted
-    email = "your-email@domain.com"  # Replace with your actual email address
+    email = "palmpropertiesmumbai@gmail.com"  # Updated with actual email address
     
 # Redirect rules for form submissions
 [[redirects]]

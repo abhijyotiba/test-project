@@ -1,0 +1,737 @@
+/* ===== LUXURY PROPERTY POPUP - PREMIUM BRAND LEVEL ===== */
+/* Main luxury styles file - Prada/Gucci inspired design */
+
+/* Luxury Brand Inspired Variables */
+:root {
+    --luxury-black: #000000;
+    --luxury-charcoal: #1A1A1A;
+    --luxury-grey: #8B8B8B;
+    --luxury-light-grey: #F8F8F8;
+    --luxury-gold: #D4AF37;
+    --luxury-white: #FFFFFF;
+    --luxury-cream: #FEFEFE;
+    --luxury-spacing-xs: 8px;
+    --luxury-spacing-sm: 16px;
+    --luxury-spacing-md: 24px;
+    --luxury-spacing-lg: 32px;
+    --luxury-spacing-xl: 48px;
+    --luxury-spacing-xxl: 64px;
+    --luxury-border-radius: 2px;
+    --luxury-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --luxury-font-serif: 'Playfair Display', Georgia, serif;
+    --luxury-transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --luxury-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --luxury-shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --luxury-shadow-heavy: 0 24px 64px rgba(0, 0, 0, 0.12);
+}
+
+/* Modal Overlay - Sophisticated backdrop */
+.property-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: var(--z-modal, 1050);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.property-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Container */
+.property-modal {
+    background: var(--white, #FFFFFF);
+    border-radius: 20px;
+    max-width: 1000px;
+    max-height: 90vh;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    transform: scale(0.7) translateY(50px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.3),
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+}
+
+/* Custom scrollbar for the entire modal */
+.property-modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.property-modal::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.property-modal::-webkit-scrollbar-thumb {
+    background: var(--primary-gold, #D4AF37);
+    border-radius: 4px;
+}
+
+.property-modal::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-gold-dark, #B8941F);
+}
+
+.property-modal-overlay.active .property-modal {
+    transform: scale(1) translateY(0);
+    animation: modal-fade-in 0.5s ease forwards; /* Soft entrance animation */
+}
+
+/* Soft Entrance Animation */
+@keyframes modal-fade-in {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* Close Button */
+.property-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--text-dark, #0F0F0F);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.property-modal-close:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Gallery Section */
+.property-modal-gallery {
+    position: relative;
+    background: var(--charcoal, #1A1A1A);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Square 400x400 for all views */
+    flex-shrink: 0; /* Prevent shrinking */
+    /* Ensure no blur or scaling effects */
+    transform: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.property-modal-slideshow {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    /* Ensure crisp rendering */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.property-modal-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    /* Remove transform effects that might cause blur */
+    transform: none;
+    overflow: hidden;
+}
+
+.property-modal-slide.active {
+    opacity: 1;
+    /* Remove any transform that might cause blur */
+    transform: none;
+}
+
+.property-modal-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Square aspect ratio 1:1 for all views */
+    aspect-ratio: 1/1;
+    /* Ensure crisp image rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Remove any blur effects */
+    filter: none;
+    transform: none;
+    /* Smooth loading transition */
+    transition: opacity 0.3s ease;
+}
+
+/* Navigation Arrows */
+.property-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--text-dark, #0F0F0F);
+    transition: all 0.3s ease;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.property-modal-nav:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.property-modal-nav-prev {
+    left: 20px;
+}
+
+.property-modal-nav-next {
+    right: 20px;
+}
+
+/* Slide Indicators */
+.property-modal-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.property-modal-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.property-modal-indicator.active {
+    background: var(--primary-gold, #D4AF37);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Property Details Section */
+.property-modal-details {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Luxury gradient instead of plain beige */
+    flex: 1; /* Take remaining space */
+}
+
+/* Remove the old scrollbar styles from details section since we moved it to modal */
+
+.property-modal-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-light, #E9ECEF);
+    padding-bottom: 20px;
+}
+
+.property-modal-title {
+    font-family: var(--font-family-serif, 'Playfair Display', serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-dark, #0F0F0F);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.property-modal-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-medium, #404040);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.property-modal-location::before {
+    content: '📍';
+    font-size: 1rem;
+}
+
+.property-modal-price {
+    font-family: var(--font-family-primary, 'Inter', sans-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #D4AF37, #B8941F); /* Luxury gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    display: inline-block; /* Required for gradient text */
+}
+
+.property-modal-description {
+    color: var(--text-medium, #404040);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+/* Property Features Grid */
+.property-modal-features {
+    margin-bottom: 30px;
+}
+
+.property-modal-features-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark, #0F0F0F);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.property-modal-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.property-modal-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(253, 248, 229, 0.6)); /* Glassmorphism gradient */
+    backdrop-filter: blur(8px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600; /* Enhanced weight for premium feel */
+    color: var(--text-medium, #404040);
+    border: none; /* Remove border for cleaner look */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: all 0.3s ease;
+}
+
+.property-modal-feature:hover {
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(253, 248, 229, 0.8));
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25); /* Luxury glow on hover */
+    transform: translateY(-2px);
+}
+
+.property-modal-feature-icon {
+    font-size: 1.2rem;
+    color: var(--primary-gold, #D4AF37);
+    flex-shrink: 0;
+}
+
+/* Amenities Section */
+.property-modal-amenities {
+    margin-bottom: 30px;
+}
+
+.property-modal-amenities-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark, #0F0F0F);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.property-modal-amenities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.property-modal-amenity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-medium, #404040);
+    padding: 5px 0;
+}
+
+.property-modal-amenity::before {
+    content: '✓';
+    color: var(--primary-gold, #D4AF37);
+    font-weight: bold;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Additional Sections for Future Use */
+.property-modal-specifications {
+    margin-bottom: 30px;
+}
+
+.property-modal-specifications-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark, #0F0F0F);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.property-modal-spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light, #E9ECEF);
+    font-size: 0.9rem;
+}
+
+.property-modal-spec-label {
+    color: var(--text-medium, #404040);
+    font-weight: 500;
+}
+
+.property-modal-spec-value {
+    color: var(--text-dark, #0F0F0F);
+    font-weight: 600;
+}
+
+/* Property Location/Map Section */
+.property-modal-location-section {
+    margin-bottom: 30px;
+}
+
+.property-modal-location-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark, #0F0F0F);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.property-modal-map-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--light-grey, #F8F9FA);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-medium, #404040);
+    font-size: 0.9rem;
+    border: 1px solid var(--border-light, #E9ECEF);
+}
+
+/* Action Buttons */
+.property-modal-actions {
+    margin-top: 30px;
+    padding: 20px 40px 40px 40px;
+    border-top: 1px solid rgba(15, 15, 15, 0.1);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    flex-shrink: 0; /* Prevent shrinking */
+    background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Match luxury gradient background */
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-bottom: -40px;
+    position: sticky; /* Sticky action buttons */
+    bottom: 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Shadow for sticky effect */
+}
+
+.property-modal-button {
+    flex: 1;
+    min-width: 140px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-primary, 'Inter', sans-serif);
+    outline: none;
+}
+
+.property-modal-button-primary {
+    background: var(--primary-gold, #D4AF37);
+    color: var(--white, #FFFFFF);
+    border: 2px solid var(--primary-gold, #D4AF37);
+}
+
+.property-modal-button-primary:hover {
+    background: var(--primary-gold-dark, #B8941F);
+    border-color: var(--primary-gold-dark, #B8941F);
+    color: var(--white, #FFFFFF);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.property-modal-button-secondary {
+    background: transparent;
+    color: #0F0F0F !important; /* Force black text */
+    border: 2px solid var(--text-dark, #0F0F0F);
+}
+
+.property-modal-button-secondary:hover {
+    background: var(--text-dark, #0F0F0F);
+    color: var(--white, #FFFFFF);
+    border-color: var(--text-dark, #0F0F0F);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(15, 15, 15, 0.3);
+}
+
+.property-modal-button-primary:focus {
+    outline: 2px solid var(--primary-gold-dark, #B8941F);
+    outline-offset: 2px;
+}
+
+.property-modal-button-secondary:focus {
+    outline: 2px solid var(--text-dark, #0F0F0F);
+    outline-offset: 2px;
+}
+
+.property-modal-button:active {
+    transform: translateY(0);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .property-modal {
+        max-height: 95vh;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    .property-modal-gallery {
+        height: 400px; /* Square 400x400 - consistent with desktop */
+    }
+    
+    .property-modal-details {
+        padding: 30px 25px;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on mobile */
+    }
+    
+    .property-modal-actions {
+        padding: 20px 25px 30px 25px;
+        margin-left: -25px;
+        margin-right: -25px;
+        margin-bottom: -30px;
+        flex-direction: column;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on mobile */
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Maintain shadow on mobile */
+    }
+    
+    .property-modal-title {
+        font-size: 2rem;
+    }
+    
+    .property-modal-price {
+        font-size: 1.5rem;
+    }
+    
+    .property-modal-features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .property-modal-amenities-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .property-modal-button {
+        min-width: auto;
+    }
+    
+    .property-modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .property-modal-nav-prev {
+        left: 15px;
+    }
+    
+    .property-modal-nav-next {
+        right: 15px;
+    }
+    
+    .property-modal-indicators {
+        bottom: 15px;
+    }
+    
+    .property-modal-close {
+        width: 40px;
+        height: 40px;
+        top: 15px;
+        right: 15px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-modal-overlay {
+        padding: 10px;
+    }
+    
+    .property-modal {
+        margin: 0;
+        border-radius: 10px;
+    }
+    
+    .property-modal-gallery {
+        height: 400px; /* Square 400x400 - consistent across all devices */
+    }
+    
+    .property-modal-details {
+        padding: 20px;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on small screens */
+    }
+    
+    .property-modal-actions {
+        padding: 20px 20px 20px 20px;
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-bottom: -20px;
+        background: linear-gradient(145deg, #F9F6EF, #F5F1E8); /* Maintain gradient on small screens */
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1); /* Maintain shadow on small screens */
+    }
+    
+    .property-modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .property-modal-amenities-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility and Animation Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .property-modal-overlay,
+    .property-modal,
+    .property-modal-slide,
+    .property-modal-nav,
+    .property-modal-indicator,
+    .property-modal-button,
+    .property-modal-feature {
+        transition: none;
+        animation: none;
+    }
+    
+    .property-modal-overlay.active .property-modal {
+        transform: scale(1) translateY(0);
+        animation: none; /* Disable animation for reduced motion */
+    }
+}
+
+/* Focus styles for accessibility */
+.property-modal-close:focus,
+.property-modal-nav:focus,
+.property-modal-indicator:focus,
+.property-modal-button:focus {
+    outline: 2px solid var(--primary-gold, #D4AF37);
+    outline-offset: 2px;
+}
+
+/* Loading state for images */
+.property-modal-slide img {
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+}
+
+.property-modal-slide img:not([src]) {
+    opacity: 0;
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .property-modal {
+        background: #1a1a1a;
+        color: #f5f5f5;
+    }
+    
+    .property-modal-details {
+        background: #d3daba; /* Dark beige for dark mode */
+    }
+    
+    .property-modal-actions {
+        background: #d3daba; /* Match dark beige background */
+    }
+    
+    .property-modal-title,
+    .property-modal-features-title,
+    .property-modal-amenities-title {
+        color: #f5f5f5;
+    }
+    
+    .property-modal-feature {
+        background: rgba(207, 185, 143, 0.8); /* Maintain glassmorphism in dark mode */
+        backdrop-filter: blur(8px);
+    }
+    
+    .property-modal-button-secondary {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+    }
+    
+    .property-modal-button-secondary:hover {
+        background: #f5f5f5;
+        color: #1a1a1a;
+    }
+}

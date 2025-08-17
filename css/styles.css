@@ -4193,6 +4193,43 @@ header#navbar.scrolled .menu-toggle:hover {
         border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     }
     
+    .property-card .image-hover-area {
+        height: 240px;
+    }
+    
+    .property-overlay {
+        height: 240px;
+        padding: var(--space-4);
+        justify-content: flex-start;
+        padding-top: var(--space-6);
+    }
+    
+    .property-overlay-title {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-2);
+    }
+    
+    .property-overlay-location {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-2);
+    }
+    
+    .property-overlay-price {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-2);
+    }
+    
+    .property-overlay-description {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-3);
+        line-height: var(--leading-tight);
+    }
+    
+    .property-overlay-link {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--text-xs);
+    }
+    
     .property-content {
         padding: var(--space-5);  /* Reduced from var(--space-6) */
         height: 210px;
