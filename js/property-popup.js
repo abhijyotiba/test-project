@@ -642,15 +642,20 @@ class PropertyModal {
             const contactSection = document.querySelector('#contact');
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                
                 // Pre-fill the form if possible
-                const nameField = document.querySelector('#name');
-                const messageField = document.querySelector('#message');
                 const propertyTitle = this.modal.querySelector('.property-modal-title').textContent;
-                
+                const messageField = document.querySelector('#message');
+                const propertyTypeField = document.querySelector('#property_type');
+                const budgetField = document.querySelector('#budget');
                 if (messageField) {
                     messageField.value = `I would like to schedule a viewing for ${propertyTitle}. Please contact me with available times.`;
                     messageField.focus();
+                }
+                if (propertyTypeField) {
+                    propertyTypeField.value = this.getPropertyTypeForTitle(propertyTitle);
+                }
+                if (budgetField) {
+                    budgetField.value = this.getBudgetForTitle(propertyTitle);
                 }
             }
         }, 500);
@@ -663,17 +668,42 @@ class PropertyModal {
             const contactSection = document.querySelector('#contact');
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                
                 // Pre-fill the form if possible
-                const messageField = document.querySelector('#message');
                 const propertyTitle = this.modal.querySelector('.property-modal-title').textContent;
-                
+                const messageField = document.querySelector('#message');
+                const propertyTypeField = document.querySelector('#property_type');
+                const budgetField = document.querySelector('#budget');
                 if (messageField) {
                     messageField.value = `I would like more information about ${propertyTitle}, including pricing, availability, and property details.`;
                     messageField.focus();
                 }
+                if (propertyTypeField) {
+                    propertyTypeField.value = this.getPropertyTypeForTitle(propertyTitle);
+                }
+                if (budgetField) {
+                    budgetField.value = this.getBudgetForTitle(propertyTitle);
+                }
             }
         }, 500);
+    }
+    // Helper to map property title to property type dropdown value
+    getPropertyTypeForTitle(title) {
+        title = title.toLowerCase();
+        if (title.includes('verdant vistas')) return 'Residential Apartment';
+        if (title.includes('la familia')) return 'Residential Apartment';
+        if (title.includes('la vie')) return 'Penthouse';
+        // Add more mappings as needed
+        return '';
+    }
+
+    // Helper to map property title to budget dropdown value
+    getBudgetForTitle(title) {
+        title = title.toLowerCase();
+        if (title.includes('verdant vistas')) return '2 - 5 Crores';
+        if (title.includes('la familia')) return '2 - 5 Crores';
+        if (title.includes('la vie')) return '5+ Crores';
+        // Add more mappings as needed
+        return '';
     }
 }
 
