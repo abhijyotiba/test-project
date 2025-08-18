@@ -77,7 +77,7 @@ class PropertyModal {
                     
                     <div class="property-modal-actions">
                         <button class="property-modal-button property-modal-button-primary">Schedule Viewing</button>
-                        <button class="property-modal-button property-modal-button-secondary">Get More Info</button>
+                        <button class="property-modal-button property-modal-button-secondary">Full Details</button>
                     </div>
                 </div>
             </div>
@@ -662,29 +662,15 @@ class PropertyModal {
     }
     
     getMoreInfo() {
-        // Scroll to contact form with different message
+        // Redirect to WhatsApp with pre-filled message
         this.close();
         setTimeout(() => {
-            const contactSection = document.querySelector('#contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-                // Pre-fill the form if possible
-                const propertyTitle = this.modal.querySelector('.property-modal-title').textContent;
-                const messageField = document.querySelector('#message');
-                const propertyTypeField = document.querySelector('#property_type');
-                const budgetField = document.querySelector('#budget');
-                if (messageField) {
-                    messageField.value = `I would like more information about ${propertyTitle}, including pricing, availability, and property details.`;
-                    messageField.focus();
-                }
-                if (propertyTypeField) {
-                    propertyTypeField.value = this.getPropertyTypeForTitle(propertyTitle);
-                }
-                if (budgetField) {
-                    budgetField.value = this.getBudgetForTitle(propertyTitle);
-                }
-            }
-        }, 500);
+            const propertyTitle = this.modal.querySelector('.property-modal-title').textContent;
+            const whatsappNumber = '9930363731';
+            const message = encodeURIComponent(`Hello Palm properties! I would like more information about ${propertyTitle}.`);
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${message}&type=phone_number&app_absent=0`;
+            window.open(whatsappUrl, '_blank');
+        }, 300);
     }
     // Helper to map property title to property type dropdown value
     getPropertyTypeForTitle(title) {

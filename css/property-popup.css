@@ -683,8 +683,13 @@
 /* Mobile Responsive Design - Expert UI Scaling */
 @media (max-width: 768px) {
     .property-modal {
-        max-height: 95vh;
-        margin: 10px;
+        /* Set a fixed height that is less than the full viewport */
+        max-height: 90vh;
+        /* Add some margin to pull the modal away from the screen edges */
+        margin: 5vh auto;
+        /* Center the modal horizontally and vertically with a transform. This is a reliable method for centering elements. */
+        position: relative;
+        transform: none;
         border-radius: 16px;
     }
     
@@ -793,16 +798,24 @@
 
 @media (max-width: 480px) {
     .property-modal-overlay {
-        padding: 8px;
+        /* Increase padding to ensure modal is not flush with screen edges */
+        padding: 12px;
     }
     
     .property-modal {
-        margin: 0;
+        /* Set max-height to a fixed value to ensure it's not full screen */
+        max-height: 85vh;
+        /* Use auto margin for centering */
+        margin: auto;
+        /* Add some border-radius to match the design */
         border-radius: 12px;
+        /* Remove the transform property for mobile to prevent displacement */
+        transform: none;
     }
     
     .property-modal-gallery {
-        height: 300px; /* Smaller for very small screens */
+        /* Reduce height for smaller screens */
+        height: 200px;
     }
     
     .property-modal-details {
